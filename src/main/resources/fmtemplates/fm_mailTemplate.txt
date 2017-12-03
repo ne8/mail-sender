@@ -1,0 +1,7 @@
+<html>
+
+    <body>
+        <h3>Dear ${mailModel.recipient}, keep it rolling</h3>
+        <h4> Your message: ${mailModel.message}</h4>
+    </body>
+</html>
