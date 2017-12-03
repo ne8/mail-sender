@@ -27,7 +27,9 @@ public class MailFacadeImpl implements MailFacade {
         final List<MailDTO> mailDTOList = new ArrayList<>();
         for (final MailEntity mailEntity : mailEntityList) {
             final MailDTO mailDTO = this.modelMapper.map(mailEntity, MailDTO.class);
-            mailDTO.setSentDate(new SimpleDateFormat("E, dd MMM yyyy HH:mm:ss z").format(mailEntity.getSentDate()));
+            if (mailEntity.getSentDate() != null) {
+                mailDTO.setSentDate(new SimpleDateFormat("E, dd MMM yyyy HH:mm:ss z").format(mailEntity.getSentDate()));
+            }
             mailDTOList.add(mailDTO);
         }
         return mailDTOList;
@@ -44,7 +46,9 @@ public class MailFacadeImpl implements MailFacade {
         final MailEntity mailEntity = this.mailService.getEmailById(id);
         if (mailEntity != null) {
             final MailDTO mailDTO = this.modelMapper.map(mailEntity, MailDTO.class);
-            mailDTO.setSentDate(new SimpleDateFormat("E, dd MMM yyyy HH:mm:ss z").format(mailEntity.getSentDate()));
+            if (mailEntity.getSentDate() != null) {
+                mailDTO.setSentDate(new SimpleDateFormat("E, dd MMM yyyy HH:mm:ss z").format(mailEntity.getSentDate()));
+            }
             return mailDTO;
         } else {
             return null;
