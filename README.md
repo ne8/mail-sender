@@ -2,4 +2,4 @@
 
 In order to run it locally execute `./runner.sh` bash script 
 
-Keep in mind that you'll need to have `docker` installed.
+Keep in mind that you'll need to have `docker` and `docker-compose` installed.
