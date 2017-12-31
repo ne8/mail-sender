@@ -1,28 +1,34 @@
 package ro.neo.mailsender.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.Email;
 
 import javax.validation.constraints.NotNull;
 
-
+@ApiModel(description = "All details about a mail")
 public class MailDTO {
 
     private long id;
 
     @NotNull(message = "subject cannot be null")
+    @ApiModelProperty(notes = "Should not be null")
     private String subject;
 
     @NotNull(message = "sender cannot be null")
     @Email
+    @ApiModelProperty(notes = "Should not be null and it should be in an email format")
     private String sender;
 
     @NotNull(message = "recipient cannot be null")
     @Email(message = "email cannot be null")
+    @ApiModelProperty(notes = "Should not be null and it should be in an email format")
     private String recipient;
 
     @NotNull(message = "message cannot be null")
     private String message;
 
+    @ApiModelProperty("should be null")
     private String sentDate;
 
 

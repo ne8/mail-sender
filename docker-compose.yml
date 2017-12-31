@@ -1,12 +1,13 @@
 version: '3'
 services:
-
-  admin:
-    build: .
-    ports:
-     - "8080:8080"
-    depends_on:
-      - db
+#
+#  admin:
+#    image: cpatrut/mail-sender:1.0.3
+##    build: .
+#    ports:
+#     - "8080:8080"
+#    depends_on:
+#      - db
   db:
     image: postgres:9.4
     ports:
